@@ -49,7 +49,7 @@ jobs:
             echo "TAGS=langflowai/langflow:${{ inputs.version }},langflowai/langflow:1.0-alpha" >> $GITHUB_ENV
           fi
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
@@ -60,7 +60,7 @@ jobs:
         run: sleep 120
       - name: Build and push (backend)
         if: ${{ inputs.release_type == 'main' }}
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
@@ -73,7 +73,7 @@ jobs:
             langflowai/langflow-backend:1.0-alpha
       - name: Build and push (frontend)
         if: ${{ inputs.release_type == 'main' }}
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
